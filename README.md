@@ -14,7 +14,7 @@ This project was created as part of my preparation for a Java internship, showca
 - ✅ Data validation and exception handling
 - ✅ Unit testing with JUnit and Mockito
 - ✅ Swagger UI documentation
-- ✅ Docker and Docker Compose ready (coming soon)
+- ✅ Docker and Docker Compose ready
 
 ---
 
@@ -93,9 +93,15 @@ Tests cover:
 }
 ```
 
-## 🐳 Docker (Coming Soon)
+## 🐳 Docker
 
-A Dockerfile and docker-compose.yml will be added for easy containerized deployment.
+To build and run the app using Docker:
+
+```bash
+./gradlew build
+docker build -t playerstats-api .
+docker run -p 8080:8080 playerstats-api
+```
 
 ---
 
@@ -109,4 +115,13 @@ A Dockerfile and docker-compose.yml will be added for easy containerized deploym
 ![image](https://github.com/user-attachments/assets/bdb873ce-95bd-4af7-88db-8b90f4853444)
 ![image](https://github.com/user-attachments/assets/e4b7ee4f-a2ae-485a-b806-cd52611648a1)
 
+> ℹ️ **Note:**  
+> By default, the H2 Console is only accessible locally (`localhost`).  
+> If you're running the app inside Docker and need access to the H2 console from your host machine,  
+> you can enable it by adding the following to `application.properties`:
+>
+> ```properties
+> spring.h2.console.settings.web-allow-others=true
+> server.address=0.0.0.0
+> ```
 
