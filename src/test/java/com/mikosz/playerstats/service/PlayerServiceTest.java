@@ -2,6 +2,7 @@ package com.mikosz.playerstats.service;
 
 import com.mikosz.playerstats.model.Player;
 import com.mikosz.playerstats.repository.PlayerRepository;
+import com.mikosz.playerstats.service.rabbitmq.PlayerEventPublisher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,11 +16,13 @@ class PlayerServiceTest {
 
     private PlayerRepository playerRepository;
     private PlayerService playerService;
+    private PlayerEventPublisher eventPublisher;
 
     @BeforeEach
     void setUp() {
+        eventPublisher = mock(PlayerEventPublisher.class);
         playerRepository = mock(PlayerRepository.class);
-        playerService = new PlayerService(playerRepository);
+        playerService = new PlayerService(playerRepository, eventPublisher);
     }
 
     @Test
