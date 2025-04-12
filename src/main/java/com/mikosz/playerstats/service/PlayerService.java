@@ -1,7 +1,9 @@
 package com.mikosz.playerstats.service;
 
 import com.mikosz.playerstats.model.Player;
+import com.mikosz.playerstats.model.PlayerCreatedEvent;
 import com.mikosz.playerstats.repository.PlayerRepository;
+import com.mikosz.playerstats.service.rabbitmq.PlayerEventPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +13,12 @@ import java.util.List;
 public class PlayerService {
 
     private final PlayerRepository playerRepository;
+    private final PlayerEventPublisher eventPublisher;
 
     @Autowired
-    public PlayerService(PlayerRepository playerRepository) {
+    public PlayerService(PlayerRepository playerRepository, PlayerEventPublisher eventPublisher) {
         this.playerRepository = playerRepository;
+        this.eventPublisher = eventPublisher;
     }
 
     public List<Player> getAllPlayers() {
@@ -27,7 +31,16 @@ public class PlayerService {
     }
 
     public Player createPlayer(Player player) {
-        return playerRepository.save(player);
+        Player created = playerRepository.save(player);
+
+        PlayerCreatedEvent event = new PlayerCreatedEvent(
+                created.getId(),
+                created.getUsername(),
+                created.getLevel()
+        );
+
+        eventPublisher.publish(event);
+        return created;
     }
 
     public Player updatePlayer(Long id, Player updatedPlayer) {
