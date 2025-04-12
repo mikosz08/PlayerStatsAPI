@@ -15,6 +15,7 @@ This project was created as part of my preparation for a Java internship, showca
 - ✅ Unit testing with JUnit and Mockito
 - ✅ Swagger UI documentation
 - ✅ Docker and Docker Compose ready
+- ✅ RabbitMQ Message Publishing
 
 ---
 
@@ -114,6 +115,8 @@ docker run -p 8080:8080 playerstats-api
 
 ![image](https://github.com/user-attachments/assets/bdb873ce-95bd-4af7-88db-8b90f4853444)
 ![image](https://github.com/user-attachments/assets/e4b7ee4f-a2ae-485a-b806-cd52611648a1)
+![image](https://github.com/user-attachments/assets/035d8e08-d02e-47a2-b76b-0192c1bb5ab2)
+
 
 > ℹ️ **Note:**  
 > By default, the H2 Console is only accessible locally (`localhost`).  
