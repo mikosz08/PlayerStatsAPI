@@ -9,11 +9,11 @@ This project was created as part of my preparation for a Java internship, showca
 ## Features
 
 - ✅ Create, Read, Update, Delete (CRUD) player profiles
-- ✅ Database using H2
+- ✅ Database using [H2](http://localhost:8080/h2-console)
 - ✅ Architecture (Controller → Service → Repository)
 - ✅ Data validation and exception handling
 - ✅ Unit testing with JUnit and Mockito
-- ✅ Swagger UI documentation
+- ✅ [Swagger](http://localhost:8080/swagger-ui.html) UI documentation
 - ✅ Docker and Docker Compose ready
 - ✅ RabbitMQ Message Publishing
 
