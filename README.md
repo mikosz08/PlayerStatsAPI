@@ -96,12 +96,17 @@ Tests cover:
 
 ## 🐳 Docker
 
-To build and run the app using Docker:
+### 🔧 Build and run the app with Docker only (without RabbitMQ):
 
 ```bash
 ./gradlew build
 docker build -t playerstats-api .
 docker run -p 8080:8080 playerstats-api
+```
+### 🧩 Run the app with RabbitMQ using Docker Compose
+
+```bash
+docker-compose up --build
 ```
 
 ---
