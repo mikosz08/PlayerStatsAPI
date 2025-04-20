@@ -130,6 +130,5 @@ docker-compose up --build
 >
 > ```properties
 > spring.h2.console.settings.web-allow-others=true
-> server.address=0.0.0.0
 > ```
 
