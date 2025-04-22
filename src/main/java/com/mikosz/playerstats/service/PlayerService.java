@@ -2,8 +2,8 @@ package com.mikosz.playerstats.service;
 
 import com.mikosz.playerstats.model.Player;
 import com.mikosz.playerstats.model.PlayerCreatedEvent;
+import com.mikosz.playerstats.rabbitmq.publisher.PlayerEventPublisher;
 import com.mikosz.playerstats.repository.PlayerRepository;
-import com.mikosz.playerstats.service.rabbitmq.PlayerEventPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,8 +36,7 @@ public class PlayerService {
         PlayerCreatedEvent event = new PlayerCreatedEvent(
                 created.getId(),
                 created.getUsername(),
-                created.getLevel()
-        );
+                created.getLevel());
 
         eventPublisher.publish(event);
         return created;

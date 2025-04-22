@@ -1,4 +1,4 @@
-package com.mikosz.playerstats.service.rabbitmq;
+package com.mikosz.playerstats.rabbitmq.publisher;
 
 import com.mikosz.playerstats.model.PlayerCreatedEvent;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,9 @@
 package com.mikosz.playerstats.service;
 
 import com.mikosz.playerstats.model.Player;
+import com.mikosz.playerstats.rabbitmq.publisher.PlayerEventPublisher;
 import com.mikosz.playerstats.repository.PlayerRepository;
-import com.mikosz.playerstats.service.rabbitmq.PlayerEventPublisher;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
