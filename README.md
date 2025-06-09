@@ -2,8 +2,6 @@
 
 A simple REST API built with Spring Boot for managing player profiles in a game-like system.
 
-This project was created as part of my preparation for a Java internship, showcasing my ability to build clean, testable, and Docker-ready backend services.
-
 ---
 
 ## Features
